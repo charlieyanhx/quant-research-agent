@@ -20,7 +20,7 @@ jobs:
       - run: pytest -q
       # zero-spend smoke: the task set regenerates byte-identically and the rule baseline scores it
       - run: |
-          qra generate --variants 1
+          qra generate --variants 3
           git diff --exit-code -- evals/tasks
           qra run --suite bugcatch --agent lint --out /tmp/r
           qra run --suite overclaim --agent lint --out /tmp/r

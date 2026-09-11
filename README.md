@@ -12,7 +12,7 @@ Three questions, each with a scored task set:
 
 | Question | Suite | Scorer |
 |---|---|---|
-| Does the agent find the bug a backtest is hiding? | **bug-catch** — 12 backtest repos, each seeded with one class from the twelve-bug taxonomy of [*Dollar-Correct, Time-Wrong*](https://github.com/charlieyanhx/backtest-bug-taxonomy), plus clean controls | precision / recall per class; false-alarm rate on clean repos |
+| Does the agent find the bug a backtest is hiding? | **bug-catch** — 36 backtest repos: each of the twelve classes of [*Dollar-Correct, Time-Wrong*](https://github.com/charlieyanhx/backtest-bug-taxonomy) planted three ways (v0 the reference expression, v1/v2 paraphrases through different code), plus 3 clean controls | precision / recall per class and per expression; false-alarm rate on clean repos |
 | Does it refuse to overstate a result? | **overclaim-refusal** — 10 result cards (Sharpe > 3, n < 30, no basis label, CI through zero, cherry-picked window, exit-day marking) | exact match on the house-rule flags applied |
 | Can it reproduce a paper's table? | *v0.3* — CORE-Bench protocol on the public paper repos | numeric tolerance |
 
@@ -29,41 +29,44 @@ are versioned and a prompt change that moves a number is a PR with the before/af
 
 | # | class | lint |
 |---|---|---|
-| 1 | exit-day lumping | 100% |
-| 2 | trajectory truncation | 100% |
-| 3 | boundary drops | 100% |
-| 4 | missing-leg deferral | 100% |
-| 5 | mid-fill fantasy | 100% |
-| 6 | active-day annualization | 100% |
-| 7 | sign bug | 100% |
-| 8 | dropped or retried candidates | 100% |
-| 9 | wrong-instrument lookup | 100% |
-| 10 | same-snapshot execution | 100% |
-| 11 | calendar-indexed differencing | 100% |
-| 12 | attribution failure | 100% |
-| | **recall (all seeded)** | 100% |
+| 1 | exit-day lumping | 33% |
+| 2 | trajectory truncation | 33% |
+| 3 | boundary drops | 33% |
+| 4 | missing-leg deferral | 33% |
+| 5 | mid-fill fantasy | 33% |
+| 6 | active-day annualization | 33% |
+| 7 | sign bug | 33% |
+| 8 | dropped or retried candidates | 33% |
+| 9 | wrong-instrument lookup | 33% |
+| 10 | same-snapshot execution | 33% |
+| 11 | calendar-indexed differencing | 33% |
+| 12 | attribution failure | 33% |
+| | **recall (all seeded)** | 33% |
+| | recall by expression v0 / v1 / v2 | 100% / 0% / 0% |
 | | **precision** | 100% |
 | | **false alarms on clean controls** | 0% |
-| | tasks / cost / sha / prompt | 13 / $0.00 / aaee935 / review-v1 |
+| | tasks / cost / sha / prompt | 39 / $0.00 / 20241c5 / review-v1 |
 
 ### Overclaim-refusal suite
 
 | agent | exact flag match | over-flags per task | clean cases wrongly flagged | tasks / cost / sha |
 |---|---|---|---|---|
-| lint | 100% | 0.00 | 0% | 10 / $0.00 / aaee935 |
+| lint | 100% | 0.00 | 0% | 10 / $0.00 / 20241c5 |
 
 <!-- results:end -->
 
-The regex baseline was written against these exact mutations — 100 % is the ceiling for
-pattern matching on this expression set and the floor the agent has to beat. Paraphrased
-variants (v0.2) are where the agent's number becomes informative.
+Read the *by expression* row: the regex baseline was written against the v0 expressions
+and is frozen there. It finds all twelve when the bug is written the way it expects and
+**none of the 24 paraphrases** — while never inventing a bug on a clean repo. That gap
+(100 % → 0 %) is what "matched the shape, not the mechanism" looks like, and it is the
+floor the agent is measured against. The agent's row appears once a paid run is committed.
 
 ## Run it
 
 ```bash
 pip install -e ".[dev]"
-pytest -q                                     # 35 tests, no API calls
-qra generate --variants 1                     # 13 bug-catch repos + 10 overclaim cards (deterministic)
+pytest -q                                     # 85 tests, no API calls
+qra generate --variants 3                     # 39 bug-catch repos + 10 overclaim cards (deterministic)
 qra run --suite bugcatch  --agent lint        # zero-spend baseline
 qra run --suite overclaim --agent lint
 export ANTHROPIC_API_KEY=...
@@ -80,10 +83,11 @@ src/qra/
   agent/orchestrator.py   tool-runner loop; turn cap; $ cap; transcript; AgentResult
   agent/tools.py          list / read / run_python (60 s, 2 GB, path-jailed) / submit_findings
   agent/prompts.py        versioned system prompts (PROMPT_VERSION stamped into results)
-  evals/template.py       the clean backtest + the twelve mutations, one per bug class
+  evals/template.py       the clean backtest + the twelve reference mutations
+  evals/variants.py       two paraphrases per class (different anchor, idiom, or function)
   evals/generate.py       seeded repos + labels (labels never inside a repo)
   evals/overclaim.py      result cards + the rule that labels them
-  evals/baseline.py       twelve-pattern regex baseline
+  evals/baseline.py       twelve-pattern regex baseline, frozen at the v0 expressions
   evals/scorers.py        set-comparison scorers and aggregates
   evals/run.py            runner → evals/results/<suite>_<agent>_<model>_<sha>.json
   evals/report.py         README table regenerator

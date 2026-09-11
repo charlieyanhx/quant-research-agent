@@ -26,11 +26,16 @@ Each task is a directory with the mutated `backtest.py` and seeded synthetic dat
 lives outside the directory. Clean controls are scored too: a false alarm on a clean repo
 counts against the reviewer as much as a miss.
 
-v0.1 ships one variant per class (12 seeded + 1 control). The **regex baseline** was
-written with these mutations in view and scores 100 % — it is the floor for pattern
-matching on this expression set, not a reviewer. v0.2 adds paraphrased variants (same bug,
-different code) which are expected to defeat several patterns; that is where the agent's
-number becomes informative.
+Each class is planted three ways (`variants.py`): v0 is the reference expression, v1 and
+v2 change the anchor line, the idiom, or the function the bug lives in (e.g. exit-day
+lumping in `trade_pnl` vs in the aggregation step; missing legs zeroed by `fillna`, by a
+dict `fillna`, or by `pivot_table(fill_value=0)`). 36 seeded repos + 3 controls.
+
+The **regex baseline** was written against v0 and is frozen there. Result: 12/12 on v0,
+0/12 on v1, 0/12 on v2, no false alarms — the pattern matcher's generalization is exactly
+zero, which is the floor a reviewer that understands the mechanism must beat. A runtime
+invariant baseline (opentape checks executed against the repo) is a stronger floor and is
+queued for v0.3.
 
 Metrics: per-class recall, precision over all findings, false-alarm rate on controls,
 false labels per task, cost and turns per task.
@@ -49,7 +54,7 @@ Per-task cap $2, per-run cap $20 (`--cost-cap`, `--run-cap`). CI runs the zero-s
 smoke on every push; paid evals only on `workflow_dispatch` with a 4-task Sonnet limit.
 Full runs are manual, pinned by SHA, and committed under `evals/results/`.
 
-## Not in v0.1
+## Not yet
 
-Paraphrased variants; table-reproduction suite (CORE-Bench protocol); LLM judge with
+Runtime-invariant baseline; table-reproduction suite (CORE-Bench protocol); LLM judge with
 calibration set; Docker sandbox; Claude Agent SDK baseline on the same tasks.

@@ -3,8 +3,9 @@
 Each task is a directory the agent may read (`backtest.py`, `trades.csv`, `marks.csv`,
 `spot.csv`, `README.md`) and a label the agent may not (`labels.yaml`, kept outside the
 repo directories). Data differs per variant (seed); the bug is the same textual mutation
-of the clean template, so v0.1 measures "can the reviewer find this class when it is
-expressed this way" — not robustness to paraphrase, which is v0.2's job.
+of the clean template, so variant 0 is the
+expression the regex baseline was written against; variants 1-2 (`variants.py`) plant the
+same class through a different edit.
 """
 
 from __future__ import annotations
@@ -17,30 +18,14 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from .template import CLASS_NAMES, CLEAN, MUTATIONS, MUTATIONS_EXTRA
+from .template import CLASS_NAMES, CLEAN
+from .variants import README_BASE, VARIANTS, apply
 
 CALENDAR_DAYS = 3 * 252
 N_TRADES = 90
 SERIES_LEN = 60
 LOOKBACK = 20
 HOLD = 10
-
-README_CLEAN = """# Spread mean-reversion strategy — backtest
-
-Sells a two-leg spread when its net mid is more than one trailing-20-day standard
-deviation rich, holds {hold} days, marks to market daily from per-leg quotes, and fills at
-full cross-spread on entry and exit (Line 3). Reported Sharpe is on the full calendar.
-
-Run: `python backtest.py`
-
-Files: `trades.csv` (candidate signal days), `marks.csv` (per-leg bid/ask by day; quote
-outages leave some days missing), `spot.csv` (underlying close).
-"""
-
-README_NEUTRAL = README_CLEAN + """
-The strategy is delta-hedged and market-neutral by construction; the Sharpe above is alpha.
-"""
-
 
 def _ou(rng, n, level, kappa, sigma, x0):
     x = np.empty(n)
@@ -81,24 +66,20 @@ def make_data(seed: int, out: Path) -> None:
                     continue
                 rows.append({"trade_id": tid, "day": day, "leg": leg,
                              "bid": round(mid - half, 3), "ask": round(mid + half, 3)})
-        quoted = sorted({r["day"] for r in rows if r["trade_id"] == tid and r["day"] >= start + LOOKBACK
-                         and r["day"] < start + n - 1})
+        quoted = sorted({r["day"] for r in rows if r["trade_id"] == tid and r["day"] >= start + LOOKBACK})
+        quoted = quoted[:-1]  # a signal needs at least one later quote to fill against
         signal_day = int(rng.choice(quoted)) if quoted else start + LOOKBACK
         trades.append({"trade_id": tid, "signal_day": signal_day})
     pd.DataFrame(trades).to_csv(out / "trades.csv", index=False)
     pd.DataFrame(rows).to_csv(out / "marks.csv", index=False)
 
 
-def mutate(bug_class: int | None) -> str:
-    src = CLEAN
+def mutate(bug_class: int | None, variant: int = 0) -> tuple[str, str]:
+    """(backtest.py source, README) for a bug class and variant; clean when bug_class is None."""
     if bug_class is None:
-        return src
-    for table in (MUTATIONS, MUTATIONS_EXTRA):
-        if bug_class in table:
-            old, new = table[bug_class]
-            assert src.count(old) == 1, f"class {bug_class}: patch anchor not unique"
-            src = src.replace(old, new)
-    return src
+        return CLEAN, README_BASE.format(hold=HOLD)
+    v = VARIANTS[bug_class][variant]
+    return apply(CLEAN, v), (v.readme or README_BASE).format(hold=HOLD)
 
 
 def build(root: Path, variants: int, seed0: int = 1000) -> dict:
@@ -107,19 +88,23 @@ def build(root: Path, variants: int, seed0: int = 1000) -> dict:
     labels = {}
     for v in range(variants):
         for bug_class in [None] + list(CLASS_NAMES):
+            if bug_class is not None and v >= len(VARIANTS[bug_class]):
+                continue
             tag = "clean" if bug_class is None else f"bug{bug_class:02d}"
             task_id = f"{tag}_v{v}"
             d = repos / task_id
             d.mkdir(exist_ok=True)
             seed = seed0 + 100 * v + (bug_class or 0)
             make_data(seed, d)
-            (d / "backtest.py").write_text(mutate(bug_class))
-            readme = README_NEUTRAL if bug_class == 12 else README_CLEAN
-            (d / "README.md").write_text(readme.format(hold=HOLD))
+            source, readme = mutate(bug_class, v)
+            (d / "backtest.py").write_text(source)
+            (d / "README.md").write_text(readme)
             digest = hashlib.sha256(b"".join(sorted(p.read_bytes() for p in d.iterdir()))).hexdigest()[:12]
             labels[task_id] = {
                 "repo": str(d.relative_to(root)),
                 "seeded": [] if bug_class is None else [bug_class],
+                "variant": v,
+                "note": "" if bug_class is None else VARIANTS[bug_class][v].note,
                 "seed": seed,
                 "sha256": digest,
             }

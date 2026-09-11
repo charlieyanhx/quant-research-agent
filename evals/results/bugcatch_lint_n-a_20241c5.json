@@ -1,0 +1,852 @@
+{
+ "rows": [
+  {
+   "task_id": "bug01_v0",
+   "seeded": [
+    1
+   ],
+   "variant": 0,
+   "found": [
+    1
+   ],
+   "findings": [
+    {
+     "bug_class": 1,
+     "file": "backtest.py",
+     "line": 64,
+     "evidence": "pattern /daily\\.loc\\[exit_day\\]\\s*=\\s*side\\s*\\*\\s*\\(path\\.loc\\[exit_day\\]\\s*-\\s*path\\.loc\\[entry_day\\]\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug01_v1",
+   "seeded": [
+    1
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug01_v2",
+   "seeded": [
+    1
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug02_v0",
+   "seeded": [
+    2
+   ],
+   "variant": 0,
+   "found": [
+    2
+   ],
+   "findings": [
+    {
+     "bug_class": 2,
+     "file": "backtest.py",
+     "line": 61,
+     "evidence": "pattern /\\.index\\[min\\(HOLD,\\s*len\\(/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug02_v1",
+   "seeded": [
+    2
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug02_v2",
+   "seeded": [
+    2
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug03_v0",
+   "seeded": [
+    3
+   ],
+   "variant": 0,
+   "found": [
+    3
+   ],
+   "findings": [
+    {
+     "bug_class": 3,
+     "file": "backtest.py",
+     "line": 76,
+     "evidence": "pattern /year_end\\s*=/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug03_v1",
+   "seeded": [
+    3
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug03_v2",
+   "seeded": [
+    3
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug04_v0",
+   "seeded": [
+    4
+   ],
+   "variant": 0,
+   "found": [
+    4
+   ],
+   "findings": [
+    {
+     "bug_class": 4,
+     "file": "backtest.py",
+     "line": 30,
+     "evidence": "pattern /mid\\s*=\\s*mid\\.fillna\\(0(\\.0)?\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug04_v1",
+   "seeded": [
+    4
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug04_v2",
+   "seeded": [
+    4
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug05_v0",
+   "seeded": [
+    5
+   ],
+   "variant": 0,
+   "found": [
+    5
+   ],
+   "findings": [
+    {
+     "bug_class": 5,
+     "file": "backtest.py",
+     "line": 65,
+     "evidence": "pattern /midpoint;? spread not paid/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug05_v1",
+   "seeded": [
+    5
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug05_v2",
+   "seeded": [
+    5
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug06_v0",
+   "seeded": [
+    6
+   ],
+   "variant": 0,
+   "found": [
+    6
+   ],
+   "findings": [
+    {
+     "bug_class": 6,
+     "file": "backtest.py",
+     "line": 84,
+     "evidence": "pattern /book\\s*=\\s*book\\.dropna\\(\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug06_v1",
+   "seeded": [
+    6
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug06_v2",
+   "seeded": [
+    6
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug07_v0",
+   "seeded": [
+    7
+   ],
+   "variant": 0,
+   "found": [
+    7
+   ],
+   "findings": [
+    {
+     "bug_class": 7,
+     "file": "backtest.py",
+     "line": 65,
+     "evidence": "pattern /daily\\.loc\\[entry_day\\]\\s*\\+=\\s*half/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug07_v1",
+   "seeded": [
+    7
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug07_v2",
+   "seeded": [
+    7
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug08_v0",
+   "seeded": [
+    8
+   ],
+   "variant": 0,
+   "found": [
+    8
+   ],
+   "findings": [
+    {
+     "bug_class": 8,
+     "file": "backtest.py",
+     "line": 61,
+     "evidence": "pattern /if exit_day > calendar\\[-1\\]:\\s*\\n\\s*return None/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug08_v1",
+   "seeded": [
+    8
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug08_v2",
+   "seeded": [
+    8
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug09_v0",
+   "seeded": [
+    9
+   ],
+   "variant": 0,
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": 53,
+     "evidence": "pattern /net_mid\\.groupby\\(level=\\\"day\\\"\\)\\.first\\(\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug09_v1",
+   "seeded": [
+    9
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug09_v2",
+   "seeded": [
+    9
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug10_v0",
+   "seeded": [
+    10
+   ],
+   "variant": 0,
+   "found": [
+    10
+   ],
+   "findings": [
+    {
+     "bug_class": 10,
+     "file": "backtest.py",
+     "line": 59,
+     "evidence": "pattern /entry_day\\s*=\\s*int\\(trade\\[\\\"signal_day\\\"\\]\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug10_v1",
+   "seeded": [
+    10
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug10_v2",
+   "seeded": [
+    10
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug11_v0",
+   "seeded": [
+    11
+   ],
+   "variant": 0,
+   "found": [
+    11
+   ],
+   "findings": [
+    {
+     "bug_class": 11,
+     "file": "backtest.py",
+     "line": 63,
+     "evidence": "pattern /exit_day\\s*=\\s*int\\(path\\.index\\[-1\\]\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug11_v1",
+   "seeded": [
+    11
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug11_v2",
+   "seeded": [
+    11
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug12_v0",
+   "seeded": [
+    12
+   ],
+   "variant": 0,
+   "found": [
+    12
+   ],
+   "findings": [
+    {
+     "bug_class": 12,
+     "file": "README.md",
+     "line": null,
+     "evidence": "README claims neutrality; code never measures beta"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug12_v1",
+   "seeded": [
+    12
+   ],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug12_v2",
+   "seeded": [
+    12
+   ],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "clean_v0",
+   "seeded": [],
+   "variant": 0,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "clean_v1",
+   "seeded": [],
+   "variant": 1,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "clean_v2",
+   "seeded": [],
+   "variant": 2,
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  }
+ ],
+ "aggregate": {
+  "per_class": {
+   "1": {
+    "name": "exit-day lumping",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "2": {
+    "name": "trajectory truncation",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "3": {
+    "name": "boundary drops",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "4": {
+    "name": "missing-leg deferral",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "5": {
+    "name": "mid-fill fantasy",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "6": {
+    "name": "active-day annualization",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "7": {
+    "name": "sign bug",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "8": {
+    "name": "dropped or retried candidates",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "9": {
+    "name": "wrong-instrument lookup",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "10": {
+    "name": "same-snapshot execution",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "11": {
+    "name": "calendar-indexed differencing",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "12": {
+    "name": "attribution failure",
+    "n": 3,
+    "recall": 0.3333333333333333
+   }
+  },
+  "recall_by_variant": {
+   "0": 1.0,
+   "1": 0.0,
+   "2": 0.0
+  },
+  "recall": 0.3333333333333333,
+  "precision": 1.0,
+  "false_labels_per_task": 0.0,
+  "control_false_alarm_rate": 0.0,
+  "n_tasks": 39,
+  "n_seeded_tasks": 36,
+  "n_controls": 3
+ },
+ "total_cost_usd": 0.0,
+ "suite": "bugcatch",
+ "agent": "lint",
+ "model": "n/a",
+ "prompt_version": "review-v1",
+ "git_sha": "20241c5",
+ "timestamp": "2026-09-11T20:31:16Z"
+}

@@ -1,6 +1,6 @@
 [project]
 name = "quant-research-agent"
-version = "0.1.0"
+version = "0.2.0"
 description = "A research agent for quant backtests, and the evals that measure whether it catches known bugs and refuses to overstate results."
 readme = "README.md"
 requires-python = ">=3.11"

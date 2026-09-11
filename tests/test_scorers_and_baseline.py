@@ -21,11 +21,14 @@ def test_aggregate_reports_control_false_alarms():
     assert a["control_false_alarm_rate"] == 0.5 and a["n_controls"] == 2
 
 
-def test_baseline_finds_each_seeded_class_and_nothing_on_clean(tmp_path):
-    labels = build(tmp_path, variants=1)
+def test_baseline_is_exact_on_v0_and_never_false_alarms(tmp_path):
+    labels = build(tmp_path, variants=3)
     for task_id, lab in labels.items():
         found = sorted({f.bug_class for f in lint_repo(tmp_path / lab["repo"])})
-        assert found == lab["seeded"], task_id
+        if lab["variant"] == 0:
+            assert found == lab["seeded"], task_id
+        else:  # frozen at v0: it may miss a paraphrase but must not invent a bug
+            assert set(found) <= set(lab["seeded"]), task_id
 
 
 def test_overclaim_rules_and_boundaries():

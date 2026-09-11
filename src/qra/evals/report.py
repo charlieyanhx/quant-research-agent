@@ -41,6 +41,8 @@ def render(results: Path) -> str:
             cells = [_fmt(r["aggregate"]["per_class"][str(c)]["recall"]) for r in bug.values()]
             out.append(f"| {c} | {CLASS_NAMES[c]} | " + " | ".join(cells) + " |")
         out.append("| | **recall (all seeded)** | " + " | ".join(_fmt(r["aggregate"]["recall"]) for r in bug.values()) + " |")
+        out.append("| | recall by expression v0 / v1 / v2 | " + " | ".join(
+            " / ".join(_fmt(x) for x in r["aggregate"].get("recall_by_variant", {}).values()) for r in bug.values()) + " |")
         out.append("| | **precision** | " + " | ".join(_fmt(r["aggregate"]["precision"]) for r in bug.values()) + " |")
         out.append("| | **false alarms on clean controls** | " + " | ".join(_fmt(r["aggregate"]["control_false_alarm_rate"]) for r in bug.values()) + " |")
         out.append("| | tasks / cost / sha / prompt | " + " | ".join(

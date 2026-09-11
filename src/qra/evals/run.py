@@ -52,7 +52,7 @@ def run_bugcatch(tasks_root: Path, agent: str, model: str, limit: int | None, co
         found = sorted({f.bug_class for f in findings})
         sc = score_bugcatch(lab["seeded"], found)
         total_cost += meta["cost_usd"]
-        rows.append({"task_id": task_id, "seeded": lab["seeded"], "found": found,
+        rows.append({"task_id": task_id, "seeded": lab["seeded"], "variant": lab.get("variant", 0), "found": found,
                      "findings": [asdict(f) for f in findings],
                      "tp": sc.tp, "fp": sc.fp, "fn": sc.fn, "seconds": round(time.time() - t0, 1), **meta})
         print(f"{task_id:<12} seeded={lab['seeded']} found={found} tp={sc.tp} fp={sc.fp} fn={sc.fn} "

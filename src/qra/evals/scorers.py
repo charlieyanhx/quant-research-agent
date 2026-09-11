@@ -51,11 +51,17 @@ def aggregate_bugcatch(rows: list[dict]) -> dict:
                         "recall": float(np.mean(hits)) if hits else float("nan")}
     seeded_rows = [r for r in rows if r["seeded"]]
     controls = [r for r in rows if not r["seeded"]]
+    by_variant = {}
+    for r in seeded_rows:
+        v = r.get("variant", 0)
+        by_variant.setdefault(v, []).append(len(set(r["seeded"]) & set(r["found"])) / len(set(r["seeded"])))
+    by_variant = {str(v): float(np.mean(x)) for v, x in sorted(by_variant.items())}
     tp = sum(len(set(r["seeded"]) & set(r["found"])) for r in rows)
     n_found = sum(len(set(r["found"])) for r in rows)
     n_seeded = sum(len(set(r["seeded"])) for r in rows)
     return {
         "per_class": per_class,
+        "recall_by_variant": by_variant,
         "recall": tp / n_seeded if n_seeded else float("nan"),
         "precision": tp / n_found if n_found else float("nan"),
         "false_labels_per_task": float(np.mean([len(set(r["found"]) - set(r["seeded"])) for r in rows])) if rows else float("nan"),
