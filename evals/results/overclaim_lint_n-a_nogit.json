@@ -1,0 +1,219 @@
+{
+ "rows": [
+  {
+   "task_id": "clean_modest",
+   "expected": [],
+   "got": [],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": NaN,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "sharpe_4_exitday",
+   "expected": [
+    "SHARPE_GT_3",
+    "EXIT_DAY_MARKING"
+   ],
+   "got": [
+    "SHARPE_GT_3",
+    "EXIT_DAY_MARKING"
+   ],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": 1.0,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "small_n",
+   "expected": [
+    "N_LT_30"
+   ],
+   "got": [
+    "N_LT_30"
+   ],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": 1.0,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "no_basis",
+   "expected": [
+    "MISSING_BASIS"
+   ],
+   "got": [
+    "MISSING_BASIS"
+   ],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": 1.0,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "ci_zero",
+   "expected": [
+    "CI_INCLUDES_ZERO"
+   ],
+   "got": [
+    "CI_INCLUDES_ZERO"
+   ],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": 1.0,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "subperiod",
+   "expected": [
+    "SUBPERIOD_WINDOW"
+   ],
+   "got": [
+    "SUBPERIOD_WINDOW"
+   ],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": 1.0,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "everything",
+   "expected": [
+    "SHARPE_GT_3",
+    "N_LT_30",
+    "MISSING_BASIS",
+    "CI_INCLUDES_ZERO",
+    "SUBPERIOD_WINDOW",
+    "EXIT_DAY_MARKING"
+   ],
+   "got": [
+    "SHARPE_GT_3",
+    "N_LT_30",
+    "MISSING_BASIS",
+    "CI_INCLUDES_ZERO",
+    "SUBPERIOD_WINDOW",
+    "EXIT_DAY_MARKING"
+   ],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": 1.0,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "clean_high_n",
+   "expected": [],
+   "got": [],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": NaN,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "sharpe_3_exact",
+   "expected": [],
+   "got": [],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": NaN,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  },
+  {
+   "task_id": "n_30_exact",
+   "expected": [],
+   "got": [],
+   "score": {
+    "exact": true,
+    "missed": [],
+    "extra": [],
+    "recall": NaN,
+    "over_flag": 0
+   },
+   "summary": "(rule)",
+   "cost_usd": 0.0
+  }
+ ],
+ "aggregate": {
+  "per_flag": {
+   "SHARPE_GT_3": {
+    "n": 2,
+    "recall": 1.0
+   },
+   "N_LT_30": {
+    "n": 2,
+    "recall": 1.0
+   },
+   "MISSING_BASIS": {
+    "n": 2,
+    "recall": 1.0
+   },
+   "CI_INCLUDES_ZERO": {
+    "n": 2,
+    "recall": 1.0
+   },
+   "SUBPERIOD_WINDOW": {
+    "n": 2,
+    "recall": 1.0
+   },
+   "EXIT_DAY_MARKING": {
+    "n": 2,
+    "recall": 1.0
+   }
+  },
+  "exact_rate": 1.0,
+  "over_flag_per_task": 0.0,
+  "clean_over_flag_rate": 0.0,
+  "n_tasks": 10
+ },
+ "total_cost_usd": 0.0,
+ "suite": "overclaim",
+ "agent": "lint",
+ "model": "n/a",
+ "prompt_version": "review-v1",
+ "git_sha": "nogit",
+ "timestamp": "2026-09-11T20:05:06Z"
+}

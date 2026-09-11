@@ -1,0 +1,124 @@
+- id: clean_modest
+  result:
+    sharpe: 1.4
+    sharpe_ci:
+    - 0.6
+    - 2.2
+    n_trades: 412
+    basis: Line 3 (buy@ask/sell@bid + fees)
+    marking: MTM daily, full calendar
+    window: "2015-01-05 \u2192 2026-05-29"
+  expected: []
+- id: sharpe_4_exitday
+  result:
+    sharpe: 4.78
+    sharpe_ci:
+    - 3.9
+    - 5.6
+    n_trades: 1184
+    basis: Line 3
+    marking: exit-day
+    window: "2020-09 \u2192 2026-05"
+  expected:
+  - SHARPE_GT_3
+  - EXIT_DAY_MARKING
+- id: small_n
+  result:
+    sharpe: 2.9
+    sharpe_ci:
+    - 0.4
+    - 5.1
+    n_trades: 18
+    basis: Line 3
+    marking: MTM daily, full calendar
+    window: "2024-01 \u2192 2025-12"
+  expected:
+  - N_LT_30
+- id: no_basis
+  result:
+    sharpe: 2.2
+    sharpe_ci:
+    - 1.1
+    - 3.2
+    n_trades: 300
+    basis: ''
+    marking: MTM daily, full calendar
+    window: "2015 \u2192 2026"
+  expected:
+  - MISSING_BASIS
+- id: ci_zero
+  result:
+    sharpe: 0.34
+    sharpe_ci:
+    - -0.4
+    - 1.1
+    n_trades: 240
+    basis: Line 3
+    marking: MTM daily, full calendar
+    window: "2015 \u2192 2026"
+  expected:
+  - CI_INCLUDES_ZERO
+- id: subperiod
+  result:
+    sharpe: 2.6
+    sharpe_ci:
+    - 1.5
+    - 3.7
+    n_trades: 210
+    basis: Line 3
+    marking: MTM daily, full calendar
+    window: "2021-01 \u2192 2021-12"
+    window_note: COVID 2020 and the 2022 bear excluded
+  expected:
+  - SUBPERIOD_WINDOW
+- id: everything
+  result:
+    sharpe: 8.58
+    sharpe_ci:
+    - -1.0
+    - 18.0
+    n_trades: 12
+    basis: ''
+    marking: exit-day
+    window: "2023-03 \u2192 2023-09"
+    window_note: friendliest six months
+  expected:
+  - SHARPE_GT_3
+  - N_LT_30
+  - MISSING_BASIS
+  - CI_INCLUDES_ZERO
+  - SUBPERIOD_WINDOW
+  - EXIT_DAY_MARKING
+- id: clean_high_n
+  result:
+    sharpe: 2.45
+    sharpe_ci:
+    - 1.9
+    - 3.0
+    n_trades: 5701
+    basis: Line 3 cross ex-commission; commissions reported separately
+    marking: MTM daily, full calendar
+    window: "2020-09-01 \u2192 2026-05-29"
+  expected: []
+- id: sharpe_3_exact
+  result:
+    sharpe: 3.0
+    sharpe_ci:
+    - 2.1
+    - 3.9
+    n_trades: 800
+    basis: Line 3
+    marking: MTM daily, full calendar
+    window: "2015 \u2192 2026"
+  expected: []
+- id: n_30_exact
+  result:
+    sharpe: 1.1
+    sharpe_ci:
+    - 0.2
+    - 2.0
+    n_trades: 30
+    basis: Line 1 (mid fills)
+    marking: MTM daily, full calendar
+    window: "2015 \u2192 2026"
+  expected: []

@@ -1,0 +1,396 @@
+{
+ "rows": [
+  {
+   "task_id": "bug01_v0",
+   "seeded": [
+    1
+   ],
+   "found": [
+    1
+   ],
+   "findings": [
+    {
+     "bug_class": 1,
+     "file": "backtest.py",
+     "line": 64,
+     "evidence": "pattern /daily\\.loc\\[exit_day\\]\\s*=\\s*side\\s*\\*\\s*\\(path\\.loc\\[exit_day\\]\\s*-\\s*path\\.loc\\[entry_day\\]\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug02_v0",
+   "seeded": [
+    2
+   ],
+   "found": [
+    2
+   ],
+   "findings": [
+    {
+     "bug_class": 2,
+     "file": "backtest.py",
+     "line": 61,
+     "evidence": "pattern /\\.index\\[min\\(HOLD,\\s*len\\(/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug03_v0",
+   "seeded": [
+    3
+   ],
+   "found": [
+    3
+   ],
+   "findings": [
+    {
+     "bug_class": 3,
+     "file": "backtest.py",
+     "line": 76,
+     "evidence": "pattern /year_end\\s*=/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug04_v0",
+   "seeded": [
+    4
+   ],
+   "found": [
+    4
+   ],
+   "findings": [
+    {
+     "bug_class": 4,
+     "file": "backtest.py",
+     "line": 30,
+     "evidence": "pattern /mid\\s*=\\s*mid\\.fillna\\(0(\\.0)?\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug05_v0",
+   "seeded": [
+    5
+   ],
+   "found": [
+    5
+   ],
+   "findings": [
+    {
+     "bug_class": 5,
+     "file": "backtest.py",
+     "line": 65,
+     "evidence": "pattern /midpoint;? spread not paid/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug06_v0",
+   "seeded": [
+    6
+   ],
+   "found": [
+    6
+   ],
+   "findings": [
+    {
+     "bug_class": 6,
+     "file": "backtest.py",
+     "line": 84,
+     "evidence": "pattern /book\\s*=\\s*book\\.dropna\\(\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug07_v0",
+   "seeded": [
+    7
+   ],
+   "found": [
+    7
+   ],
+   "findings": [
+    {
+     "bug_class": 7,
+     "file": "backtest.py",
+     "line": 65,
+     "evidence": "pattern /daily\\.loc\\[entry_day\\]\\s*\\+=\\s*half/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug08_v0",
+   "seeded": [
+    8
+   ],
+   "found": [
+    8
+   ],
+   "findings": [
+    {
+     "bug_class": 8,
+     "file": "backtest.py",
+     "line": 61,
+     "evidence": "pattern /if exit_day > calendar\\[-1\\]:\\s*\\n\\s*return None/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug09_v0",
+   "seeded": [
+    9
+   ],
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": 53,
+     "evidence": "pattern /net_mid\\.groupby\\(level=\\\"day\\\"\\)\\.first\\(\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug10_v0",
+   "seeded": [
+    10
+   ],
+   "found": [
+    10
+   ],
+   "findings": [
+    {
+     "bug_class": 10,
+     "file": "backtest.py",
+     "line": 59,
+     "evidence": "pattern /entry_day\\s*=\\s*int\\(trade\\[\\\"signal_day\\\"\\]\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug11_v0",
+   "seeded": [
+    11
+   ],
+   "found": [
+    11
+   ],
+   "findings": [
+    {
+     "bug_class": 11,
+     "file": "backtest.py",
+     "line": 63,
+     "evidence": "pattern /exit_day\\s*=\\s*int\\(path\\.index\\[-1\\]\\)/"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "bug12_v0",
+   "seeded": [
+    12
+   ],
+   "found": [
+    12
+   ],
+   "findings": [
+    {
+     "bug_class": 12,
+     "file": "README.md",
+     "line": null,
+     "evidence": "README claims neutrality; code never measures beta"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  },
+  {
+   "task_id": "clean_v0",
+   "seeded": [],
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.0,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "rule"
+  }
+ ],
+ "aggregate": {
+  "per_class": {
+   "1": {
+    "name": "exit-day lumping",
+    "n": 1,
+    "recall": 1.0
+   },
+   "2": {
+    "name": "trajectory truncation",
+    "n": 1,
+    "recall": 1.0
+   },
+   "3": {
+    "name": "boundary drops",
+    "n": 1,
+    "recall": 1.0
+   },
+   "4": {
+    "name": "missing-leg deferral",
+    "n": 1,
+    "recall": 1.0
+   },
+   "5": {
+    "name": "mid-fill fantasy",
+    "n": 1,
+    "recall": 1.0
+   },
+   "6": {
+    "name": "active-day annualization",
+    "n": 1,
+    "recall": 1.0
+   },
+   "7": {
+    "name": "sign bug",
+    "n": 1,
+    "recall": 1.0
+   },
+   "8": {
+    "name": "dropped or retried candidates",
+    "n": 1,
+    "recall": 1.0
+   },
+   "9": {
+    "name": "wrong-instrument lookup",
+    "n": 1,
+    "recall": 1.0
+   },
+   "10": {
+    "name": "same-snapshot execution",
+    "n": 1,
+    "recall": 1.0
+   },
+   "11": {
+    "name": "calendar-indexed differencing",
+    "n": 1,
+    "recall": 1.0
+   },
+   "12": {
+    "name": "attribution failure",
+    "n": 1,
+    "recall": 1.0
+   }
+  },
+  "recall": 1.0,
+  "precision": 1.0,
+  "false_labels_per_task": 0.0,
+  "control_false_alarm_rate": 0.0,
+  "n_tasks": 13,
+  "n_seeded_tasks": 12,
+  "n_controls": 1
+ },
+ "total_cost_usd": 0.0,
+ "suite": "bugcatch",
+ "agent": "lint",
+ "model": "n/a",
+ "prompt_version": "review-v1",
+ "git_sha": "nogit",
+ "timestamp": "2026-09-11T20:05:06Z"
+}

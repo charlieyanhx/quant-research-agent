@@ -1,0 +1,40 @@
+name: ci
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e ".[dev]"
+      - run: ruff check src tests
+      - run: pytest -q
+      # zero-spend smoke: the task set regenerates byte-identically and the rule baseline scores it
+      - run: |
+          qra generate --variants 1
+          git diff --exit-code -- evals/tasks
+          qra run --suite bugcatch --agent lint --out /tmp/r
+          qra run --suite overclaim --agent lint --out /tmp/r
+  # Paid evals run only on a manual trigger or a tag, never on every push.
+  evals:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    environment: evals
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[dev]"
+      - run: qra run --suite bugcatch --agent claude --model claude-sonnet-5 --limit 4 --run-cap 5
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

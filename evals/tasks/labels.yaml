@@ -1,0 +1,77 @@
+bug01_v0:
+  repo: repos/bug01_v0
+  seed: 1001
+  seeded:
+  - 1
+  sha256: cd260cb7bf13
+bug02_v0:
+  repo: repos/bug02_v0
+  seed: 1002
+  seeded:
+  - 2
+  sha256: f65f59f44025
+bug03_v0:
+  repo: repos/bug03_v0
+  seed: 1003
+  seeded:
+  - 3
+  sha256: f495587be1e9
+bug04_v0:
+  repo: repos/bug04_v0
+  seed: 1004
+  seeded:
+  - 4
+  sha256: 2a14712071ea
+bug05_v0:
+  repo: repos/bug05_v0
+  seed: 1005
+  seeded:
+  - 5
+  sha256: 56bebebf2e96
+bug06_v0:
+  repo: repos/bug06_v0
+  seed: 1006
+  seeded:
+  - 6
+  sha256: 4b0c57d9f0e8
+bug07_v0:
+  repo: repos/bug07_v0
+  seed: 1007
+  seeded:
+  - 7
+  sha256: 2e2944455b5c
+bug08_v0:
+  repo: repos/bug08_v0
+  seed: 1008
+  seeded:
+  - 8
+  sha256: 28f7bb9d9965
+bug09_v0:
+  repo: repos/bug09_v0
+  seed: 1009
+  seeded:
+  - 9
+  sha256: 6532134bdf50
+bug10_v0:
+  repo: repos/bug10_v0
+  seed: 1010
+  seeded:
+  - 10
+  sha256: ffc97e4c0412
+bug11_v0:
+  repo: repos/bug11_v0
+  seed: 1011
+  seeded:
+  - 11
+  sha256: e55b7cb69459
+bug12_v0:
+  repo: repos/bug12_v0
+  seed: 1012
+  seeded:
+  - 12
+  sha256: e06e5c4efd32
+clean_v0:
+  repo: repos/clean_v0
+  seed: 1000
+  seeded: []
+  sha256: 7d2fd6089b47
