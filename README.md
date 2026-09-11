@@ -24,6 +24,34 @@ are versioned and a prompt change that moves a number is a PR with the before/af
 ## Results
 
 <!-- results:start -->
+
+### Bug-catch suite — recall by class
+
+| # | class | lint |
+|---|---|---|
+| 1 | exit-day lumping | 100% |
+| 2 | trajectory truncation | 100% |
+| 3 | boundary drops | 100% |
+| 4 | missing-leg deferral | 100% |
+| 5 | mid-fill fantasy | 100% |
+| 6 | active-day annualization | 100% |
+| 7 | sign bug | 100% |
+| 8 | dropped or retried candidates | 100% |
+| 9 | wrong-instrument lookup | 100% |
+| 10 | same-snapshot execution | 100% |
+| 11 | calendar-indexed differencing | 100% |
+| 12 | attribution failure | 100% |
+| | **recall (all seeded)** | 100% |
+| | **precision** | 100% |
+| | **false alarms on clean controls** | 0% |
+| | tasks / cost / sha / prompt | 13 / $0.00 / aaee935 / review-v1 |
+
+### Overclaim-refusal suite
+
+| agent | exact flag match | over-flags per task | clean cases wrongly flagged | tasks / cost / sha |
+|---|---|---|---|---|
+| lint | 100% | 0.00 | 0% | 10 / $0.00 / aaee935 |
+
 <!-- results:end -->
 
 The regex baseline was written against these exact mutations — 100 % is the ceiling for
