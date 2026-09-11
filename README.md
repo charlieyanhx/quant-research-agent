@@ -45,13 +45,13 @@ are versioned and a prompt change that moves a number is a PR with the before/af
 | | recall by expression v0 / v1 / v2 | 100% / 0% / 0% |
 | | **precision** | 100% |
 | | **false alarms on clean controls** | 0% |
-| | tasks / cost / sha / prompt | 39 / $0.00 / 20241c5 / review-v1 |
+| | tasks / cost / sha / prompt | 39 / $0.00 / f4a9cb2 / review-v1 |
 
 ### Overclaim-refusal suite
 
 | agent | exact flag match | over-flags per task | clean cases wrongly flagged | tasks / cost / sha |
 |---|---|---|---|---|
-| lint | 100% | 0.00 | 0% | 10 / $0.00 / 20241c5 |
+| lint | 100% | 0.00 | 0% | 10 / $0.00 / f4a9cb2 |
 
 <!-- results:end -->
 
