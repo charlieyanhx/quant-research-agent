@@ -23,6 +23,10 @@ are versioned and a prompt change that moves a number is a PR with the before/af
 
 ## Results
 
+**Status:** only the zero-spend regex baseline has been run and committed. No Claude run
+exists yet; the agent's column appears in the table when a paid run is committed under
+`evals/results/` (`qra run --suite bugcatch --agent claude`).
+
 <!-- results:start -->
 
 ### Bug-catch suite — recall by class
@@ -104,9 +108,23 @@ Anthropic SDK tool runner on `claude-opus-5` with adaptive thinking; four typed 
 No framework. The MCP server exposes the identical tool functions so the same review can be
 driven from Claude Code.
 
+## Roadmap
+
+v0.3: a runtime-invariant baseline (opentape's checks executed against the repo — a harder
+floor than regex), a CORE-Bench-style table-reproduction suite on the two fully
+reproducible paper repos, and the overclaim judge with a human-labelled calibration set
+and an agreement number. Later: Docker sandbox; a Claude Agent SDK baseline on the same tasks.
+
 ## Data and privacy
 
-Everything here is synthetic or public. Tools that touch proprietary data stay in a
-gitignored adapter; no system prompt names a live strategy.
+Everything here is synthetic or public: the seeded repos are generated from one template,
+the overclaim cards are fictional. Tools that touch proprietary data stay in a gitignored
+adapter; no system prompt names a live strategy.
+
+## Companion repos
+
+[tcakit](https://github.com/charlieyanhx/tcakit) — transaction cost analysis and market
+impact · [deskboard](https://github.com/charlieyanhx/deskboard) — options risk and P&L
+dashboard with deterministic replay.
 
 MIT © Hanxiong (Charlie) Yan
