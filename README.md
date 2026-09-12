@@ -83,7 +83,7 @@ once a paid run is committed.
 
 ```bash
 pip install -e ".[dev]"
-pytest -q                                     #  tests, no API calls
+pytest -q                                     # 103 tests, no API calls
 qra generate --variants 3                     # 39 bug-catch repos + 10 overclaim cards (deterministic)
 qra run --suite bugcatch  --agent lint        # zero-spend regex baseline
 qra run --suite bugcatch  --agent runtime     # zero-spend runtime-invariant baseline (~15 s)
