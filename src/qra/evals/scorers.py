@@ -37,9 +37,16 @@ class BugCatchScore:
         return self.fp > 0
 
 
+UNCLASSIFIED = 0
+
+
 def score_bugcatch(seeded: list[int], found_classes: list[int]) -> BugCatchScore:
+    """Class 0 = "a deviation was detected but not classified": on a seeded task it is neither a
+    hit nor a false label; on a clean task it is a false alarm like any other finding."""
     s, f = set(seeded), set(found_classes)
-    return BugCatchScore(tuple(sorted(s)), tuple(sorted(f)), len(s & f), len(f - s), len(s - f))
+    labelled = f - {UNCLASSIFIED}
+    fp = len(labelled - s) if s else len(f)
+    return BugCatchScore(tuple(sorted(s)), tuple(sorted(f)), len(s & labelled), fp, len(s - labelled))
 
 
 def aggregate_bugcatch(rows: list[dict]) -> dict:
@@ -51,20 +58,27 @@ def aggregate_bugcatch(rows: list[dict]) -> dict:
                         "recall": float(np.mean(hits)) if hits else float("nan")}
     seeded_rows = [r for r in rows if r["seeded"]]
     controls = [r for r in rows if not r["seeded"]]
+    active = [r for r in seeded_rows if r.get("effect", "numbers") != "none"]
+    dormant = [r["task_id"] for r in seeded_rows if r.get("effect") == "none"]
     by_variant = {}
     for r in seeded_rows:
         v = r.get("variant", 0)
         by_variant.setdefault(v, []).append(len(set(r["seeded"]) & set(r["found"])) / len(set(r["seeded"])))
     by_variant = {str(v): float(np.mean(x)) for v, x in sorted(by_variant.items())}
     tp = sum(len(set(r["seeded"]) & set(r["found"])) for r in rows)
-    n_found = sum(len(set(r["found"])) for r in rows)
+    n_found = sum(len(set(r["found"]) - {UNCLASSIFIED}) for r in rows)
     n_seeded = sum(len(set(r["seeded"])) for r in rows)
+    tp_active = sum(len(set(r["seeded"]) & set(r["found"])) for r in active)
+    n_active = sum(len(set(r["seeded"])) for r in active)
     return {
         "per_class": per_class,
         "recall_by_variant": by_variant,
         "recall": tp / n_seeded if n_seeded else float("nan"),
+        "recall_active": tp_active / n_active if n_active else float("nan"),
+        "detection_active": float(np.mean([bool(r["found"]) for r in active])) if active else float("nan"),
+        "dormant_tasks": dormant,
         "precision": tp / n_found if n_found else float("nan"),
-        "false_labels_per_task": float(np.mean([len(set(r["found"]) - set(r["seeded"])) for r in rows])) if rows else float("nan"),
+        "false_labels_per_task": float(np.mean([len(set(r["found"]) - set(r["seeded"]) - {UNCLASSIFIED}) if r["seeded"] else len(set(r["found"])) for r in rows])) if rows else float("nan"),
         "control_false_alarm_rate": float(np.mean([bool(r["found"]) for r in controls])) if controls else float("nan"),
         "n_tasks": len(rows), "n_seeded_tasks": len(seeded_rows), "n_controls": len(controls),
     }

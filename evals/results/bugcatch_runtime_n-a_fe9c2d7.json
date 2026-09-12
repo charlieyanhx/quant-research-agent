@@ -1,0 +1,1079 @@
+{
+ "rows": [
+  {
+   "task_id": "bug01_v0",
+   "seeded": [
+    1
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    1
+   ],
+   "findings": [
+    {
+     "bug_class": 1,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "only 39 non-zero P&L days for 174 trade-days of marks"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.5,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug01_v1",
+   "seeded": [
+    1
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    1
+   ],
+   "findings": [
+    {
+     "bug_class": 1,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "only 33 non-zero P&L days for 168 trade-days of marks"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug01_v2",
+   "seeded": [
+    1
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    1
+   ],
+   "findings": [
+    {
+     "bug_class": 1,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "only 28 non-zero P&L days for 310 trade-days of marks"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug02_v0",
+   "seeded": [
+    2
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    2
+   ],
+   "findings": [
+    {
+     "bug_class": 2,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "3 trades match a tape whose exit is the HOLD-th quoted row, not the calendar day HOLD days later"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug02_v1",
+   "seeded": [
+    2
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    2
+   ],
+   "findings": [
+    {
+     "bug_class": 2,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "6 trades match a tape whose exit is the HOLD-th quoted row, not the calendar day HOLD days later"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug02_v2",
+   "seeded": [
+    2
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    2
+   ],
+   "findings": [
+    {
+     "bug_class": 2,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "8 trades match a tape whose exit is the HOLD-th quoted row, not the calendar day HOLD days later"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug03_v0",
+   "seeded": [
+    3
+   ],
+   "variant": 0,
+   "effect": "none",
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug03_v1",
+   "seeded": [
+    3
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    8
+   ],
+   "findings": [
+    {
+     "bug_class": 8,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "13 trades vs 14 signals; every missing trade would have resolved after the calendar end: unresolved candidates dropped"
+    }
+   ],
+   "tp": 0,
+   "fp": 1,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug03_v2",
+   "seeded": [
+    3
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    3
+   ],
+   "findings": [
+    {
+     "bug_class": 3,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "16 trades vs 17 signals; missing trades sit inside the sample, not at its end: dropped at a period boundary"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug04_v0",
+   "seeded": [
+    4
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "2 trades on the tape have no signal in their own mark series: the signal was computed on another instrument's quotes"
+    }
+   ],
+   "tp": 0,
+   "fp": 1,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug04_v1",
+   "seeded": [
+    4
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "2 trades on the tape have no signal in their own mark series: the signal was computed on another instrument's quotes"
+    }
+   ],
+   "tp": 0,
+   "fp": 1,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug04_v2",
+   "seeded": [
+    4
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "2 trades on the tape have no signal in their own mark series: the signal was computed on another instrument's quotes"
+    }
+   ],
+   "tp": 0,
+   "fp": 1,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug05_v0",
+   "seeded": [
+    5
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    5
+   ],
+   "findings": [
+    {
+     "bug_class": 5,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "net on all 16 deviating trades equals the reference GROSS: fills at mid, no spread paid"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug05_v1",
+   "seeded": [
+    5
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    5
+   ],
+   "findings": [
+    {
+     "bug_class": 5,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "net == gross on every trade: no spread paid"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug05_v2",
+   "seeded": [
+    5
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    5
+   ],
+   "findings": [
+    {
+     "bug_class": 5,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "net == gross on every trade: no spread paid"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug06_v0",
+   "seeded": [
+    6
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    6
+   ],
+   "findings": [
+    {
+     "bug_class": 6,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "book has 202 days, calendar has 756"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug06_v1",
+   "seeded": [
+    6
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    6
+   ],
+   "findings": [
+    {
+     "bug_class": 6,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "book has 129 days, calendar has 756"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug06_v2",
+   "seeded": [
+    6
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    6
+   ],
+   "findings": [
+    {
+     "bug_class": 6,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "daily book matches the reference but Sharpe 0.8790 != 0.4434 from the same days"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug07_v0",
+   "seeded": [
+    7
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    7
+   ],
+   "findings": [
+    {
+     "bug_class": 7,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "net exceeds the reference by exactly twice the spread on all 14 deviating trades: the cost was credited, not charged"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug07_v1",
+   "seeded": [
+    7
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    7
+   ],
+   "findings": [
+    {
+     "bug_class": 7,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "net > gross on at least one trade"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug07_v2",
+   "seeded": [
+    7
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    7
+   ],
+   "findings": [
+    {
+     "bug_class": 7,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "net exceeds the reference by exactly twice the spread on all 24 deviating trades: the cost was credited, not charged"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug08_v0",
+   "seeded": [
+    8
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    8
+   ],
+   "findings": [
+    {
+     "bug_class": 8,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "16 trades vs 17 signals; every missing trade would have resolved after the calendar end: unresolved candidates dropped"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug08_v1",
+   "seeded": [
+    8
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    8
+   ],
+   "findings": [
+    {
+     "bug_class": 8,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "13 trades vs 14 signals; every missing trade would have resolved after the calendar end: unresolved candidates dropped"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug08_v2",
+   "seeded": [
+    8
+   ],
+   "variant": 2,
+   "effect": "none",
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug09_v0",
+   "seeded": [
+    9
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "18 trades on the tape have no signal in their own mark series: the signal was computed on another instrument's quotes"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug09_v1",
+   "seeded": [
+    9
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "6 trades on the tape have no signal in their own mark series: the signal was computed on another instrument's quotes"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug09_v2",
+   "seeded": [
+    9
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    9
+   ],
+   "findings": [
+    {
+     "bug_class": 9,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "14 trades on the tape have no signal in their own mark series: the signal was computed on another instrument's quotes"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug10_v0",
+   "seeded": [
+    10
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    10
+   ],
+   "findings": [
+    {
+     "bug_class": 10,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "25 trades match a tape that fills at the signal day's own quote, not the next one"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug10_v1",
+   "seeded": [
+    10
+   ],
+   "variant": 1,
+   "effect": "numbers",
+   "found": [
+    10
+   ],
+   "findings": [
+    {
+     "bug_class": 10,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "27 trades match a tape that fills at the signal day's own quote, not the next one"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug10_v2",
+   "seeded": [
+    10
+   ],
+   "variant": 2,
+   "effect": "numbers",
+   "found": [
+    10
+   ],
+   "findings": [
+    {
+     "bug_class": 10,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "21 trades match a tape that fills at the signal day's own quote, not the next one"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug11_v0",
+   "seeded": [
+    11
+   ],
+   "variant": 0,
+   "effect": "numbers",
+   "found": [
+    11
+   ],
+   "findings": [
+    {
+     "bug_class": 11,
+     "file": "backtest.py",
+     "line": null,
+     "evidence": "every trade's total matches the reference but the daily book does not: returns were differenced across gaps"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug11_v1",
+   "seeded": [
+    11
+   ],
+   "variant": 1,
+   "effect": "none",
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug11_v2",
+   "seeded": [
+    11
+   ],
+   "variant": 2,
+   "effect": "none",
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 1,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug12_v0",
+   "seeded": [
+    12
+   ],
+   "variant": 0,
+   "effect": "claim",
+   "found": [
+    12
+   ],
+   "findings": [
+    {
+     "bug_class": 12,
+     "file": "README.md",
+     "line": null,
+     "evidence": "README claims neutrality; beta share of P&L variance 4.8%"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug12_v1",
+   "seeded": [
+    12
+   ],
+   "variant": 1,
+   "effect": "claim",
+   "found": [
+    12
+   ],
+   "findings": [
+    {
+     "bug_class": 12,
+     "file": "README.md",
+     "line": null,
+     "evidence": "README claims neutrality; beta share of P&L variance 5.6%"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "bug12_v2",
+   "seeded": [
+    12
+   ],
+   "variant": 2,
+   "effect": "claim",
+   "found": [
+    12
+   ],
+   "findings": [
+    {
+     "bug_class": 12,
+     "file": "README.md",
+     "line": null,
+     "evidence": "README claims neutrality; beta share of P&L variance 6.6%"
+    }
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "clean_v0",
+   "seeded": [],
+   "variant": 0,
+   "effect": "none",
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "clean_v1",
+   "seeded": [],
+   "variant": 1,
+   "effect": "none",
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  },
+  {
+   "task_id": "clean_v2",
+   "seeded": [],
+   "variant": 2,
+   "effect": "none",
+   "found": [],
+   "findings": [],
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "seconds": 0.3,
+   "cost_usd": 0.0,
+   "turns": 0,
+   "submitted": true,
+   "stop_reason": "invariant"
+  }
+ ],
+ "aggregate": {
+  "per_class": {
+   "1": {
+    "name": "exit-day lumping",
+    "n": 3,
+    "recall": 1.0
+   },
+   "2": {
+    "name": "trajectory truncation",
+    "n": 3,
+    "recall": 1.0
+   },
+   "3": {
+    "name": "boundary drops",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "4": {
+    "name": "missing-leg deferral",
+    "n": 3,
+    "recall": 0.0
+   },
+   "5": {
+    "name": "mid-fill fantasy",
+    "n": 3,
+    "recall": 1.0
+   },
+   "6": {
+    "name": "active-day annualization",
+    "n": 3,
+    "recall": 1.0
+   },
+   "7": {
+    "name": "sign bug",
+    "n": 3,
+    "recall": 1.0
+   },
+   "8": {
+    "name": "dropped or retried candidates",
+    "n": 3,
+    "recall": 0.6666666666666666
+   },
+   "9": {
+    "name": "wrong-instrument lookup",
+    "n": 3,
+    "recall": 1.0
+   },
+   "10": {
+    "name": "same-snapshot execution",
+    "n": 3,
+    "recall": 1.0
+   },
+   "11": {
+    "name": "calendar-indexed differencing",
+    "n": 3,
+    "recall": 0.3333333333333333
+   },
+   "12": {
+    "name": "attribution failure",
+    "n": 3,
+    "recall": 1.0
+   }
+  },
+  "recall_by_variant": {
+   "0": 0.8333333333333334,
+   "1": 0.75,
+   "2": 0.75
+  },
+  "recall": 0.7777777777777778,
+  "recall_active": 0.875,
+  "detection_active": 1.0,
+  "dormant_tasks": [
+   "bug03_v0",
+   "bug08_v2",
+   "bug11_v1",
+   "bug11_v2"
+  ],
+  "precision": 0.875,
+  "false_labels_per_task": 0.10256410256410256,
+  "control_false_alarm_rate": 0.0,
+  "n_tasks": 39,
+  "n_seeded_tasks": 36,
+  "n_controls": 3
+ },
+ "total_cost_usd": 0.0,
+ "suite": "bugcatch",
+ "agent": "runtime",
+ "model": "n/a",
+ "prompt_version": "review-v1",
+ "git_sha": "fe9c2d7",
+ "timestamp": "2026-09-12T20:18:18Z"
+}

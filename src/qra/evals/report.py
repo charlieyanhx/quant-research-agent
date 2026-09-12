@@ -43,10 +43,16 @@ def render(results: Path) -> str:
         out.append("| | **recall (all seeded)** | " + " | ".join(_fmt(r["aggregate"]["recall"]) for r in bug.values()) + " |")
         out.append("| | recall by expression v0 / v1 / v2 | " + " | ".join(
             " / ".join(_fmt(x) for x in r["aggregate"].get("recall_by_variant", {}).values()) for r in bug.values()) + " |")
-        out.append("| | **precision** | " + " | ".join(_fmt(r["aggregate"]["precision"]) for r in bug.values()) + " |")
+        out.append("| | **recall on active tasks** (bug changes a number or a claim) | " + " | ".join(_fmt(r["aggregate"].get("recall_active")) for r in bug.values()) + " |")
+        out.append("| | detected at all on active tasks (any finding, incl. unclassified) | " + " | ".join(_fmt(r["aggregate"].get("detection_active")) for r in bug.values()) + " |")
+        out.append("| | **precision** (labelled findings) | " + " | ".join(_fmt(r["aggregate"]["precision"]) for r in bug.values()) + " |")
         out.append("| | **false alarms on clean controls** | " + " | ".join(_fmt(r["aggregate"]["control_false_alarm_rate"]) for r in bug.values()) + " |")
         out.append("| | tasks / cost / sha / prompt | " + " | ".join(
             f"{r['aggregate']['n_tasks']} / ${r['total_cost_usd']:.2f} / {r['git_sha']} / {r['prompt_version']}" for r in bug.values()) + " |")
+        dormant = next((r["aggregate"].get("dormant_tasks") for r in bug.values() if r["aggregate"].get("dormant_tasks")), None)
+        if dormant:
+            out.append("")
+            out.append(f"Dormant seeded tasks (the mutation changes no number and no claim on that seed's data, so only reading can find it): {', '.join(dormant)}.")
     else:
         out.append("_no bug-catch runs yet_")
     out += ["", "### Overclaim-refusal suite", ""]

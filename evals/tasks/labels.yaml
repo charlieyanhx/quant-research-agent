@@ -1,4 +1,5 @@
 bug01_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug01_v0
   seed: 1001
@@ -7,6 +8,7 @@ bug01_v0:
   sha256: 7b3187ef56f9
   variant: 0
 bug01_v1:
+  effect: numbers
   note: realized P&L placed on the close day via a one-element series
   repo: repos/bug01_v1
   seed: 1101
@@ -15,6 +17,7 @@ bug01_v1:
   sha256: 12fd57fa0892
   variant: 1
 bug01_v2:
+  effect: numbers
   note: lumping moved from trade_pnl into the aggregation step
   repo: repos/bug01_v2
   seed: 1201
@@ -23,6 +26,7 @@ bug01_v2:
   sha256: 5e7a49994f82
   variant: 2
 bug02_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug02_v0
   seed: 1002
@@ -31,6 +35,7 @@ bug02_v0:
   sha256: 5798467e2cd0
   variant: 0
 bug02_v1:
+  effect: numbers
   note: positional slice of the trade's own series
   repo: repos/bug02_v1
   seed: 1102
@@ -39,6 +44,7 @@ bug02_v1:
   sha256: 47c6f565ce54
   variant: 1
 bug02_v2:
+  effect: numbers
   note: head(HOLD+1) on a gapped series
   repo: repos/bug02_v2
   seed: 1202
@@ -47,6 +53,7 @@ bug02_v2:
   sha256: c294e8c2d811
   variant: 2
 bug03_v0:
+  effect: none
   note: baseline expression
   repo: repos/bug03_v0
   seed: 1003
@@ -55,6 +62,7 @@ bug03_v0:
   sha256: 3ba0ab897079
   variant: 0
 bug03_v1:
+  effect: numbers
   note: quarterly boundary filter at load time
   repo: repos/bug03_v1
   seed: 1103
@@ -63,6 +71,7 @@ bug03_v1:
   sha256: 6d71e5580515
   variant: 1
 bug03_v2:
+  effect: numbers
   note: sample-split boundary inside trade_pnl
   repo: repos/bug03_v2
   seed: 1203
@@ -71,6 +80,7 @@ bug03_v2:
   sha256: b685ff27fb0d
   variant: 2
 bug04_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug04_v0
   seed: 1004
@@ -79,6 +89,7 @@ bug04_v0:
   sha256: 2d29d6d92baf
   variant: 0
 bug04_v1:
+  effect: numbers
   note: dict fillna
   repo: repos/bug04_v1
   seed: 1104
@@ -87,6 +98,7 @@ bug04_v1:
   sha256: b402afdd238a
   variant: 1
 bug04_v2:
+  effect: numbers
   note: fill_value=0 inside pivot_table; only half-spread is carried
   repo: repos/bug04_v2
   seed: 1204
@@ -95,6 +107,7 @@ bug04_v2:
   sha256: 685cd73d1718
   variant: 2
 bug05_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug05_v0
   seed: 1005
@@ -103,6 +116,7 @@ bug05_v0:
   sha256: 0cb6b79e1f88
   variant: 0
 bug05_v1:
+  effect: numbers
   note: half-spread zeroed upstream, cost lines untouched
   repo: repos/bug05_v1
   seed: 1105
@@ -111,6 +125,7 @@ bug05_v1:
   sha256: 8cc58ea6400b
   variant: 1
 bug05_v2:
+  effect: numbers
   note: cost added back at aggregation; net == gross
   repo: repos/bug05_v2
   seed: 1205
@@ -119,6 +134,7 @@ bug05_v2:
   sha256: 2f201edcec28
   variant: 2
 bug06_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug06_v0
   seed: 1006
@@ -127,6 +143,7 @@ bug06_v0:
   sha256: 7acac695c508
   variant: 0
 bug06_v1:
+  effect: numbers
   note: zero days filtered instead of unpadded
   repo: repos/bug06_v1
   seed: 1106
@@ -135,6 +152,7 @@ bug06_v1:
   sha256: 5b76872e68af
   variant: 1
 bug06_v2:
+  effect: numbers
   note: calendar padded, Sharpe taken on active days only
   repo: repos/bug06_v2
   seed: 1206
@@ -143,6 +161,7 @@ bug06_v2:
   sha256: 9671c19b7766
   variant: 2
 bug07_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug07_v0
   seed: 1007
@@ -151,6 +170,7 @@ bug07_v0:
   sha256: 7d14313852e8
   variant: 0
 bug07_v1:
+  effect: numbers
   note: cost sign flipped in the gross reconstruction only
   repo: repos/bug07_v1
   seed: 1107
@@ -159,6 +179,7 @@ bug07_v1:
   sha256: 37e99042b196
   variant: 1
 bug07_v2:
+  effect: numbers
   note: side applied to the spread so a short pays a negative cost
   repo: repos/bug07_v2
   seed: 1207
@@ -167,6 +188,7 @@ bug07_v2:
   sha256: cf72c39219dd
   variant: 2
 bug08_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug08_v0
   seed: 1008
@@ -175,6 +197,7 @@ bug08_v0:
   sha256: d6aab656eb2c
   variant: 0
 bug08_v1:
+  effect: numbers
   note: open-at-end trades excluded during aggregation
   repo: repos/bug08_v1
   seed: 1108
@@ -183,6 +206,7 @@ bug08_v1:
   sha256: dfabd8fcd1a8
   variant: 1
 bug08_v2:
+  effect: none
   note: candidates filtered at load
   repo: repos/bug08_v2
   seed: 1208
@@ -191,6 +215,7 @@ bug08_v2:
   sha256: 6ff70b24853a
   variant: 2
 bug09_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug09_v0
   seed: 1009
@@ -199,6 +224,7 @@ bug09_v0:
   sha256: 0c2a14ad00c9
   variant: 0
 bug09_v1:
+  effect: numbers
   note: cross-sectional mean across instruments
   repo: repos/bug09_v1
   seed: 1109
@@ -207,6 +233,7 @@ bug09_v1:
   sha256: 42008a65158b
   variant: 1
 bug09_v2:
+  effect: numbers
   note: last instrument quoted that day
   repo: repos/bug09_v2
   seed: 1209
@@ -215,6 +242,7 @@ bug09_v2:
   sha256: 521cb3e3760c
   variant: 2
 bug10_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug10_v0
   seed: 1010
@@ -223,6 +251,7 @@ bug10_v0:
   sha256: 6835365529a2
   variant: 0
 bug10_v1:
+  effect: numbers
   note: '>= instead of >'
   repo: repos/bug10_v1
   seed: 1110
@@ -231,6 +260,7 @@ bug10_v1:
   sha256: ea6724337b79
   variant: 1
 bug10_v2:
+  effect: numbers
   note: last quote at or before the signal
   repo: repos/bug10_v2
   seed: 1210
@@ -239,6 +269,7 @@ bug10_v2:
   sha256: 55199998cc9d
   variant: 2
 bug11_v0:
+  effect: numbers
   note: baseline expression
   repo: repos/bug11_v0
   seed: 1011
@@ -247,6 +278,7 @@ bug11_v0:
   sha256: 7569365f4415
   variant: 0
 bug11_v1:
+  effect: none
   note: diff on the raw gapped rows, then placed on the calendar
   repo: repos/bug11_v1
   seed: 1111
@@ -255,6 +287,7 @@ bug11_v1:
   sha256: 7bd496c19a7d
   variant: 1
 bug11_v2:
+  effect: none
   note: reindex without ffill, dropna before diff
   repo: repos/bug11_v2
   seed: 1211
@@ -263,6 +296,7 @@ bug11_v2:
   sha256: c7b03dde7d69
   variant: 2
 bug12_v0:
+  effect: claim
   note: baseline expression
   repo: repos/bug12_v0
   seed: 1012
@@ -271,6 +305,7 @@ bug12_v0:
   sha256: '930881407802'
   variant: 0
 bug12_v1:
+  effect: claim
   note: beta measured against lagged spot; prints ~0
   repo: repos/bug12_v1
   seed: 1112
@@ -279,6 +314,7 @@ bug12_v1:
   sha256: 19f2e054df47
   variant: 1
 bug12_v2:
+  effect: claim
   note: attribution removed; claim phrased without the baseline's keywords
   repo: repos/bug12_v2
   seed: 1212
@@ -287,6 +323,7 @@ bug12_v2:
   sha256: f6350b3fad54
   variant: 2
 clean_v0:
+  effect: none
   note: ''
   repo: repos/clean_v0
   seed: 1000
@@ -294,6 +331,7 @@ clean_v0:
   sha256: 0320ac75e597
   variant: 0
 clean_v1:
+  effect: none
   note: ''
   repo: repos/clean_v1
   seed: 1100
@@ -301,6 +339,7 @@ clean_v1:
   sha256: 94e138e7fefd
   variant: 1
 clean_v2:
+  effect: none
   note: ''
   repo: repos/clean_v2
   seed: 1200

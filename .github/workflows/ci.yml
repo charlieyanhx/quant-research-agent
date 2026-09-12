@@ -23,6 +23,7 @@ jobs:
           qra generate --variants 3
           git diff --exit-code -- evals/tasks
           qra run --suite bugcatch --agent lint --out /tmp/r
+          qra run --suite bugcatch --agent runtime --out /tmp/r
           qra run --suite overclaim --agent lint --out /tmp/r
   # Paid evals run only on a manual trigger or a tag, never on every push.
   evals:

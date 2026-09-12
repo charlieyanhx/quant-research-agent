@@ -6,6 +6,7 @@
     1
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     1
    ],
@@ -32,6 +33,7 @@
     1
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -49,6 +51,7 @@
     1
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -66,6 +69,7 @@
     2
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     2
    ],
@@ -92,6 +96,7 @@
     2
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -109,6 +114,7 @@
     2
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -126,6 +132,7 @@
     3
    ],
    "variant": 0,
+   "effect": "none",
    "found": [
     3
    ],
@@ -152,6 +159,7 @@
     3
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -169,6 +177,7 @@
     3
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -186,6 +195,7 @@
     4
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     4
    ],
@@ -212,6 +222,7 @@
     4
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -229,6 +240,7 @@
     4
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -246,6 +258,7 @@
     5
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     5
    ],
@@ -272,6 +285,7 @@
     5
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -289,6 +303,7 @@
     5
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -306,6 +321,7 @@
     6
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     6
    ],
@@ -332,6 +348,7 @@
     6
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -349,6 +366,7 @@
     6
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -366,6 +384,7 @@
     7
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     7
    ],
@@ -392,6 +411,7 @@
     7
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -409,6 +429,7 @@
     7
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -426,6 +447,7 @@
     8
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     8
    ],
@@ -452,6 +474,7 @@
     8
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -469,6 +492,7 @@
     8
    ],
    "variant": 2,
+   "effect": "none",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -486,6 +510,7 @@
     9
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     9
    ],
@@ -512,6 +537,7 @@
     9
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -529,6 +555,7 @@
     9
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -546,6 +573,7 @@
     10
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     10
    ],
@@ -572,6 +600,7 @@
     10
    ],
    "variant": 1,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -589,6 +618,7 @@
     10
    ],
    "variant": 2,
+   "effect": "numbers",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -606,6 +636,7 @@
     11
    ],
    "variant": 0,
+   "effect": "numbers",
    "found": [
     11
    ],
@@ -632,6 +663,7 @@
     11
    ],
    "variant": 1,
+   "effect": "none",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -649,6 +681,7 @@
     11
    ],
    "variant": 2,
+   "effect": "none",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -666,6 +699,7 @@
     12
    ],
    "variant": 0,
+   "effect": "claim",
    "found": [
     12
    ],
@@ -692,6 +726,7 @@
     12
    ],
    "variant": 1,
+   "effect": "claim",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -709,6 +744,7 @@
     12
    ],
    "variant": 2,
+   "effect": "claim",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -724,6 +760,7 @@
    "task_id": "clean_v0",
    "seeded": [],
    "variant": 0,
+   "effect": "none",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -739,6 +776,7 @@
    "task_id": "clean_v1",
    "seeded": [],
    "variant": 1,
+   "effect": "none",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -754,6 +792,7 @@
    "task_id": "clean_v2",
    "seeded": [],
    "variant": 2,
+   "effect": "none",
    "found": [],
    "findings": [],
    "tp": 0,
@@ -835,6 +874,14 @@
    "2": 0.0
   },
   "recall": 0.3333333333333333,
+  "recall_active": 0.34375,
+  "detection_active": 0.34375,
+  "dormant_tasks": [
+   "bug03_v0",
+   "bug08_v2",
+   "bug11_v1",
+   "bug11_v2"
+  ],
   "precision": 1.0,
   "false_labels_per_task": 0.0,
   "control_false_alarm_rate": 0.0,
@@ -847,6 +894,6 @@
  "agent": "lint",
  "model": "n/a",
  "prompt_version": "review-v1",
- "git_sha": "2ea26e3",
- "timestamp": "2026-09-11T21:52:04Z"
+ "git_sha": "fe9c2d7",
+ "timestamp": "2026-09-12T20:18:05Z"
 }

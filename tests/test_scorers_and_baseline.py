@@ -39,3 +39,14 @@ def test_overclaim_rules_and_boundaries():
     assert any(not expected_flags({k: v for k, v in c.items() if k != "id"}) for c in CASES)
     sc = score_overclaim(["N_LT_30"], ["N_LT_30", "SHARPE_GT_3"])
     assert not sc["exact"] and sc["extra"] == ["SHARPE_GT_3"] and sc["recall"] == 1.0
+
+
+def test_unclassified_detection_is_neither_hit_nor_false_label():
+    from qra.evals.scorers import UNCLASSIFIED
+    s = score_bugcatch([2], [UNCLASSIFIED])
+    assert (s.tp, s.fp, s.fn) == (0, 0, 1)
+    assert score_bugcatch([], [UNCLASSIFIED]).false_alarm            # on a clean repo it is a false alarm
+    a = aggregate_bugcatch([{"task_id": "a", "seeded": [2], "found": [UNCLASSIFIED], "effect": "numbers"},
+                            {"task_id": "b", "seeded": [3], "found": [], "effect": "none"},
+                            {"task_id": "c", "seeded": [], "found": [], "effect": "none"}])
+    assert a["detection_active"] == 1.0 and a["recall_active"] == 0.0 and a["dormant_tasks"] == ["b"]

@@ -16,6 +16,7 @@ import yaml
 
 from .baseline import lint_repo
 from .overclaim import expected_flags
+from .runtime import runtime_findings
 from .scorers import aggregate_bugcatch, aggregate_overclaim, score_bugcatch, score_overclaim
 
 
@@ -38,6 +39,9 @@ def run_bugcatch(tasks_root: Path, agent: str, model: str, limit: int | None, co
         if agent == "lint":
             findings = lint_repo(repo)
             meta = {"cost_usd": 0.0, "turns": 0, "submitted": True, "stop_reason": "rule"}
+        elif agent == "runtime":
+            findings = runtime_findings(repo)
+            meta = {"cost_usd": 0.0, "turns": 0, "submitted": True, "stop_reason": "invariant"}
         elif agent == "claude":
             from ..agent.orchestrator import review_repo
             res = review_repo(repo, model=model, cost_cap_usd=cost_cap)
@@ -52,7 +56,8 @@ def run_bugcatch(tasks_root: Path, agent: str, model: str, limit: int | None, co
         found = sorted({f.bug_class for f in findings})
         sc = score_bugcatch(lab["seeded"], found)
         total_cost += meta["cost_usd"]
-        rows.append({"task_id": task_id, "seeded": lab["seeded"], "variant": lab.get("variant", 0), "found": found,
+        rows.append({"task_id": task_id, "seeded": lab["seeded"], "variant": lab.get("variant", 0),
+                     "effect": lab.get("effect", "numbers"), "found": found,
                      "findings": [asdict(f) for f in findings],
                      "tp": sc.tp, "fp": sc.fp, "fn": sc.fn, "seconds": round(time.time() - t0, 1), **meta})
         print(f"{task_id:<12} seeded={lab['seeded']} found={found} tp={sc.tp} fp={sc.fp} fn={sc.fn} "
@@ -66,7 +71,7 @@ def run_overclaim(tasks_root: Path, agent: str, model: str, limit: int | None) -
     for i, t in enumerate(tasks):
         if limit is not None and i >= limit:
             break
-        if agent == "lint":
+        if agent in ("lint", "runtime"):
             got, summary, cost = expected_flags(t["result"]), "(rule)", 0.0
         elif agent == "claude":
             from ..agent.orchestrator import summarize_result
@@ -85,7 +90,7 @@ def run_overclaim(tasks_root: Path, agent: str, model: str, limit: int | None) -
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--suite", choices=["bugcatch", "overclaim"], default="bugcatch")
-    ap.add_argument("--agent", choices=["lint", "claude"], default="lint")
+    ap.add_argument("--agent", choices=["lint", "runtime", "claude"], default="lint")
     ap.add_argument("--model", default="claude-opus-5")
     ap.add_argument("--tasks", default="evals/tasks")
     ap.add_argument("--out", default="evals/results")

@@ -12,6 +12,10 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -82,6 +86,36 @@ def mutate(bug_class: int | None, variant: int = 0) -> tuple[str, str]:
     return apply(CLEAN, v), (v.readme or README_BASE).format(hold=HOLD)
 
 
+_RUN = """
+import json, importlib.util, sys
+spec = importlib.util.spec_from_file_location("bt", sys.argv[1]); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+tape, book, sharpe = m.run()
+print(json.dumps({"nets": {int(r.trade_id): [round(float(r.net), 9), round(float(r.gross), 9)] for r in tape.itertuples()},
+                  "book": [round(float(v), 9) for v in book.reindex(range(int(book.index.min()), int(book.index.max()) + 1), fill_value=0.0)],
+                  "sharpe": round(float(sharpe), 9)}))
+"""
+
+
+def runtime_effect(repo: Path, readme: str) -> str:
+    """What the mutation changes on this seed's data: 'numbers' (tape nets/gross, daily book or
+    Sharpe differ from the clean template on the same data), 'claim' (only the README differs —
+    the attribution class), or 'none' (a bug in form only: findable by reading, invisible to any
+    runtime check; the scorer reports these separately)."""
+    clean = repo / "_clean_reference.py"
+    clean.write_text(CLEAN)
+    try:
+        outs = []
+        for script in ("backtest.py", clean.name):
+            r = subprocess.run([sys.executable, "-c", _RUN, script], cwd=repo, capture_output=True, text=True, timeout=180,
+                               env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
+            outs.append(json.loads(r.stdout.strip().splitlines()[-1]) if r.returncode == 0 else {"crash": True})
+    finally:
+        clean.unlink(missing_ok=True)
+    if outs[0] != outs[1]:
+        return "numbers"
+    return "claim" if readme != README_BASE.format(hold=HOLD) else "none"
+
+
 def build(root: Path, variants: int, seed0: int = 1000) -> dict:
     repos = root / "repos"
     repos.mkdir(parents=True, exist_ok=True)
@@ -99,10 +133,11 @@ def build(root: Path, variants: int, seed0: int = 1000) -> dict:
             source, readme = mutate(bug_class, v)
             (d / "backtest.py").write_text(source)
             (d / "README.md").write_text(readme)
-            digest = hashlib.sha256(b"".join(sorted(p.read_bytes() for p in d.iterdir()))).hexdigest()[:12]
+            digest = hashlib.sha256(b"".join(sorted(p.read_bytes() for p in d.iterdir() if p.is_file()))).hexdigest()[:12]
             labels[task_id] = {
                 "repo": str(d.relative_to(root)),
                 "seeded": [] if bug_class is None else [bug_class],
+                "effect": "none" if bug_class is None else runtime_effect(d, readme),
                 "variant": v,
                 "note": "" if bug_class is None else VARIANTS[bug_class][v].note,
                 "seed": seed,
